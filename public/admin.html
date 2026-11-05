@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin & CRM — Northorya Mapa dos Seus Padrões</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .login-container {
+      max-width: 420px;
+      margin: 80px auto;
+    }
+    .badge-filter {
+      cursor: pointer;
+      padding: 6px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1px solid var(--border-subtle);
+      background: var(--surface);
+      color: var(--text-dark);
+      transition: var(--transition);
+    }
+    .badge-filter.active {
+      background: var(--petroleo);
+      color: #FFFFFF;
+      border-color: var(--petroleo);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Topo -->
+  <header class="brand-header">
+    <div class="brand-badge">Northorya • Painel Administrativo V1.1</div>
+    <h1 class="brand-title">CRM de Mapeamentos & Leads</h1>
+    <p class="brand-subtitle">Gestão do funil de diagnóstico e agendamentos Google Calendar</p>
+  </header>
+
+  <main class="container container-wide">
+
+    <!-- Tela de Login Admin -->
+    <div id="admin-login-box" class="card login-container">
+      <h2 style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--petroleo); margin-bottom: 12px;">
+        Acesso Administrativo
+      </h2>
+      <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px;">
+        Digite a senha de administrador configurada no arquivo de ambiente (.env).
+      </p>
+
+      <form id="form-login">
+        <div class="form-group">
+          <label class="form-label" for="admin-password">Senha de Acesso</label>
+          <input type="password" id="admin-password" class="form-input" placeholder="Sua senha secreta" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" style="margin-top: 16px;">
+          Entrar no Painel
+        </button>
+      </form>
+    </div>
+
+    <!-- Painel Principal Admin (exibido após login) -->
+    <div id="admin-dashboard" style="display: none;">
+
+      <!-- Barra de Controle Superior -->
+      <div class="admin-header">
+        <div>
+          <h2 style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--petroleo);">Visão Geral do Funil</h2>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">Métricas em tempo real sobre diagnósticos e conversão</span>
+        </div>
+        <div style="display: flex; gap: 10px;">
+          <button id="btn-toggle-config" class="btn btn-secondary" style="font-size: 0.85rem; padding: 8px 16px;">
+            ⚙ Configurar Link Google Calendar
+          </button>
+          <button id="btn-logout" class="btn btn-secondary" style="font-size: 0.85rem; padding: 8px 16px;">
+            Sair
+          </button>
+        </div>
+      </div>
+
+      <!-- Configuração da URL de Agendamento (Expansível) -->
+      <div id="config-panel" class="card" style="display: none; background-color: var(--marfim); border: 2px solid var(--salvia);">
+        <h3 style="font-family: var(--font-serif); font-size: 1.3rem; color: var(--petroleo); margin-bottom: 8px;">
+          Configuração Oficial do Agendamento (Google Calendar)
+        </h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;">
+          Altere a página oficial de agendamentos de Edson Batista sem precisar mexer no código-fonte.
+        </p>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <input type="url" id="input-booking-url" class="form-input" style="flex: 1; min-width: 280px;" placeholder="https://calendar.app.google/..." required>
+          <button id="btn-save-booking-url" class="btn btn-primary" style="padding: 10px 24px;">
+            Salvar Nova URL
+          </button>
+          <a id="btn-test-booking-url" href="#" target="_blank" class="btn btn-secondary" style="padding: 10px 18px;">
+            Testar Link
+          </a>
+        </div>
+        <span id="config-save-msg" style="display: none; font-size: 0.82rem; color: #2C7A7B; margin-top: 8px;">
+          ✓ URL de agendamento salva com sucesso!
+        </span>
+      </div>
+
+      <!-- Cards de Métricas -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Total Iniciados</div>
+          <div class="stat-num" id="stat-iniciados">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Concluídos (Devolutivas)</div>
+          <div class="stat-num" id="stat-concluidos">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Taxa de Conclusão</div>
+          <div class="stat-num" id="stat-taxa">0%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Acessos ao Calendar</div>
+          <div class="stat-num" id="stat-acessos-calendar" style="color: var(--terracota);">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Sessões Confirmadas</div>
+          <div class="stat-num" id="stat-confirmadas" style="color: #2C7A7B;">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Sessões Realizadas</div>
+          <div class="stat-num" id="stat-realizadas" style="color: #234E52;">0</div>
+        </div>
+      </div>
+
+      <!-- Filtros e Busca de Leads -->
+      <div class="card" style="padding: 20px 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
+          
+          <!-- Filtro por Status -->
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+            <span style="font-size: 0.82rem; font-weight: 700; color: var(--petroleo); margin-right: 4px;">Status:</span>
+            <span class="badge-filter active" data-status="todos">Todos</span>
+            <span class="badge-filter" data-status="link_agendamento_acessado">Acessou Calendar</span>
+            <span class="badge-filter" data-status="sessao_confirmada_manual">Confirmada</span>
+            <span class="badge-filter" data-status="sessao_realizada">Realizada</span>
+            <span class="badge-filter" data-status="quiz_concluido">Concluído</span>
+            <span class="badge-filter" data-status="quiz_iniciado">Iniciado</span>
+          </div>
+
+          <!-- Busca -->
+          <div style="display: flex; gap: 8px;">
+            <input type="text" id="input-search" class="form-input" placeholder="Buscar por nome, fone..." style="padding: 8px 12px; width: 220px; font-size: 0.85rem;">
+            <button id="btn-refresh" class="btn btn-secondary" style="padding: 8px 14px; font-size: 0.85rem;">Atualizar</button>
+          </div>
+
+        </div>
+
+        <!-- Tabela CRM -->
+        <table class="crm-table">
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Nome / Participante</th>
+              <th>Contato WhatsApp</th>
+              <th>Origem</th>
+              <th>Padrão Predominante</th>
+              <th>Status do Lead</th>
+              <th>Anotações / Ações</th>
+            </tr>
+          </thead>
+          <tbody id="leads-table-body">
+            <!-- Inserido dinamicamente via JS -->
+          </tbody>
+        </table>
+        
+        <div id="no-leads-msg" style="display: none; text-align: center; padding: 40px 0; color: var(--text-muted); font-size: 0.95rem;">
+          Nenhum registro encontrado para os filtros selecionados.
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script src="/js/admin.js"></script>
+</body>
+</html>

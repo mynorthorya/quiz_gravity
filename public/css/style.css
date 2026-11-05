@@ -1,0 +1,676 @@
+/* ==========================================================================
+   NORTHORYA — MAPA DOS SEUS PADRÕES
+   Design System Oficial V1.1
+   "Entender sua história. Compreender seu contexto. Encontrar seu norte."
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --petroleo: #123E4A;
+  --petroleo-dark: #0A242B;
+  --salvia: #6FA89A;
+  --salvia-light: #EBF3F1;
+  --aqua: #9ADBD0;
+  --terracota: #D98F78;
+  --terracota-light: #FAECE8;
+  --marfim: #F4F1EA;
+  --bg-app: #FAF7F2;
+  --nevoa: #D9E0DD;
+  --surface: #FFFFFF;
+  --text-dark: #123E4A;
+  --text-muted: #556B73;
+  --border-subtle: #E2DBD0;
+
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 2px 8px rgba(18, 62, 74, 0.04);
+  --shadow-md: 0 8px 24px -4px rgba(18, 62, 74, 0.08);
+  --shadow-lg: 0 16px 36px -6px rgba(18, 62, 74, 0.12);
+
+  --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-app);
+  color: var(--text-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Container Responsivo */
+.container {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+
+.container-wide {
+  max-width: 1100px;
+}
+
+/* Header & Branding */
+.brand-header {
+  text-align: center;
+  padding: 24px 0 16px;
+  border-bottom: 1px solid var(--border-subtle);
+  background-color: rgba(250, 247, 242, 0.95);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.brand-badge {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--petroleo);
+  background-color: var(--salvia-light);
+  padding: 5px 14px;
+  border-radius: var(--radius-full);
+  margin-bottom: 8px;
+}
+
+.brand-title {
+  font-family: var(--font-serif);
+  font-size: 1.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--petroleo);
+}
+
+.brand-subtitle {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* Cards & Superfícies */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 24px;
+  transition: var(--transition);
+}
+
+/* Barra de Progresso */
+.progress-wrapper {
+  margin: 20px 0 28px;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.progress-track {
+  height: 6px;
+  background-color: var(--nevoa);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--salvia), var(--petroleo));
+  border-radius: var(--radius-full);
+  transition: width 0.3s ease;
+}
+
+/* Dimensão Atual */
+.dimension-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--salvia);
+  margin-bottom: 14px;
+}
+
+/* Pergunta */
+.question-title {
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: var(--petroleo);
+  line-height: 1.35;
+  margin-bottom: 24px;
+}
+
+/* Opções de Resposta */
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.option-btn {
+  background-color: var(--bg-app);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  text-align: left;
+  font-family: var(--font-sans);
+  font-size: 0.98rem;
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  line-height: 1.45;
+}
+
+.option-btn:hover {
+  border-color: var(--salvia);
+  background-color: var(--salvia-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.option-btn.selected {
+  border-color: var(--petroleo);
+  background-color: var(--marfim);
+  font-weight: 600;
+  box-shadow: 0 0 0 2px var(--petroleo);
+}
+
+.option-key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-full);
+  background-color: var(--nevoa);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--petroleo);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.option-btn:hover .option-key,
+.option-btn.selected .option-key {
+  background-color: var(--petroleo);
+  color: #FFFFFF;
+}
+
+/* Formulário Opcional de Identificação (LGPD) */
+.lead-form-box {
+  background-color: var(--marfim);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  margin-top: 24px;
+}
+
+.lead-form-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--petroleo);
+  margin-bottom: 6px;
+}
+
+.lead-form-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--petroleo);
+  margin-bottom: 6px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  background-color: #FFFFFF;
+  color: var(--text-dark);
+  transition: var(--transition);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--petroleo);
+  box-shadow: 0 0 0 3px rgba(18, 62, 74, 0.1);
+}
+
+.lgpd-badge {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+/* Botões de Ação */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  font-family: var(--font-sans);
+  font-size: 0.98rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.btn-primary {
+  background-color: var(--petroleo);
+  color: #FFFFFF;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+  background-color: var(--petroleo-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--petroleo);
+  border: 1.5px solid var(--border-subtle);
+}
+
+.btn-secondary:hover {
+  background-color: var(--marfim);
+  border-color: var(--petroleo);
+}
+
+.btn-terracota {
+  background-color: var(--terracota);
+  color: #FFFFFF;
+}
+
+.btn-terracota:hover {
+  background-color: #c97e68;
+  transform: translateY(-2px);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* ==========================================================================
+   ESTILOS ESPECÍFICOS DA DEVOLUTIVA (RESULTADO)
+   ========================================================================== */
+
+.devolutiva-hero {
+  text-align: center;
+  padding: 36px 20px;
+  background: linear-gradient(180deg, #FFFFFF 0%, var(--bg-app) 100%);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-subtle);
+  margin-bottom: 28px;
+}
+
+.devolutiva-title {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--petroleo);
+  margin-bottom: 12px;
+}
+
+.devolutiva-lead {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Gráfico Radial / Barras das 5 Dimensões */
+.dimensions-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.dim-bar-card {
+  background-color: var(--bg-app);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+}
+
+.dim-bar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.dim-bar-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--petroleo);
+}
+
+.dim-bar-score {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.dim-bar-track {
+  height: 8px;
+  background-color: var(--nevoa);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.dim-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dim-bar-fill.high { background-color: var(--terracota); }
+.dim-bar-fill.medium { background-color: var(--salvia); }
+.dim-bar-fill.low { background-color: var(--aqua); }
+
+.dim-bar-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* Seções da Devolutiva */
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--petroleo);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.item-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border-subtle);
+  border-left: 4px solid var(--salvia);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  margin-bottom: 14px;
+}
+
+.item-card.terracota {
+  border-left-color: var(--terracota);
+}
+
+.item-card.petroleo {
+  border-left-color: var(--petroleo);
+}
+
+.item-title {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--petroleo);
+  margin-bottom: 6px;
+}
+
+.item-body {
+  font-size: 0.92rem;
+  color: var(--text-dark);
+  line-height: 1.55;
+}
+
+/* Caixa de Convite Final (Edson Batista - 30 min) */
+.invitation-box {
+  background: linear-gradient(145deg, #123E4A, #0A242B);
+  color: #FFFFFF;
+  border-radius: var(--radius-xl);
+  padding: 40px 32px;
+  margin: 36px 0;
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+}
+
+.invitation-badge {
+  display: inline-block;
+  background: rgba(154, 219, 208, 0.2);
+  color: var(--aqua);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  margin-bottom: 16px;
+}
+
+.invitation-heading {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  line-height: 1.25;
+  margin-bottom: 14px;
+}
+
+.invitation-text {
+  font-size: 0.98rem;
+  color: #D9E0DD;
+  max-width: 600px;
+  margin: 0 auto 24px;
+  line-height: 1.6;
+}
+
+.session-details {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  padding: 14px 22px;
+  margin-bottom: 28px;
+  font-size: 0.88rem;
+}
+
+.session-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #FFFFFF;
+}
+
+.session-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.btn-calendar-primary {
+  background: var(--terracota);
+  color: #FFFFFF;
+  font-size: 1.08rem;
+  font-weight: 700;
+  padding: 16px 36px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 10px 25px rgba(217, 143, 120, 0.35);
+  width: 100%;
+  max-width: 360px;
+}
+
+.btn-calendar-primary:hover {
+  background: #c97e68;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(217, 143, 120, 0.45);
+}
+
+.btn-calendar-secondary {
+  color: #D9E0DD;
+  font-size: 0.9rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 8px 16px;
+}
+
+.btn-calendar-secondary:hover {
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   ESTILOS DO PAINEL ADMINISTRATIVO (CRM)
+   ========================================================================== */
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 24px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.stat-num {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--petroleo);
+  margin-top: 4px;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.crm-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+  font-size: 0.88rem;
+}
+
+.crm-table th {
+  background-color: var(--marfim);
+  color: var(--petroleo);
+  font-weight: 700;
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 2px solid var(--border-subtle);
+}
+
+.crm-table td {
+  padding: 14px;
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: middle;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.status-iniciado { background: #E2E8F0; color: #475569; }
+.status-concluido { background: #EBF3F1; color: #2C7A7B; }
+.status-interesse { background: #FEFCBF; color: #975A16; }
+.status-acessou { background: #FEEBC8; color: #C05621; }
+.status-confirmado { background: #C6F6D5; color: #22543D; }
+.status-realizado { background: #B2F5EA; color: #234E52; }
+.status-acompanhamento { background: #E9D8FD; color: #553C9A; }
+
+.origin-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: var(--bg-app);
+  border: 1px solid var(--border-subtle);
+}
+
+/* Responsividade Mobile */
+@media (max-width: 640px) {
+  .brand-title { font-size: 1.5rem; }
+  .question-title { font-size: 1.25rem; }
+  .card { padding: 22px 16px; }
+  .invitation-box { padding: 28px 18px; }
+  .invitation-heading { font-size: 1.55rem; }
+  .session-details { flex-direction: column; gap: 8px; align-items: flex-start; }
+  .crm-table { display: block; overflow-x: auto; }
+}

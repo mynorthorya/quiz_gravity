@@ -3,11 +3,12 @@
   "version": "1.1.0",
   "description": "Northorya — Mapa dos Seus Padrões. Mapeamento comportamental determinístico e agendamento Google Calendar.",
   "author": "Edson Batista — Northorya",
+  "license": "MIT",
   "type": "module",
   "main": "src/server.js",
   "scripts": {
-    "start": "agy-node src/server.js",
-    "test": "agy-node tests/run-tests.js"
+    "start": "node src/server.js",
+    "test": "node tests/run-tests.js"
   },
   "engines": {
     "node": ">=20.0.0"

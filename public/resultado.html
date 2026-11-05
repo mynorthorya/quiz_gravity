@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seu Mapa de Padrões — Northorya</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Topo Institucional -->
+  <header class="brand-header">
+    <div class="brand-badge">Northorya • Devolutiva Comportamental V1.1</div>
+    <h1 class="brand-title">Mapa dos Seus Padrões</h1>
+    <p class="brand-subtitle">Entender sua história. Compreender seu contexto. Encontrar seu norte.</p>
+  </header>
+
+  <main class="container">
+    
+    <!-- Hero / Cabeçalho do Resultado -->
+    <div class="devolutiva-hero">
+      <div class="dimension-tag" id="user-greeting">Diagnóstico Comportamental Individual</div>
+      <h2 class="devolutiva-title" id="dominant-summary-title">Carregando seus resultados...</h2>
+      <p class="devolutiva-lead" id="dominant-summary-lead">
+        Analisando a intensidade das tensões e padrões reativos identificados nas 5 dimensões.
+      </p>
+    </div>
+
+    <!-- SEÇÃO 1: Seu Mapa de Padrões Individual -->
+    <section class="card">
+      <h3 class="section-title">
+        <span>1.</span> Seu Mapa de Padrões Individual
+      </h3>
+      <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 20px;">
+        As barras abaixo representam o grau de tensão e automação reativa em cada uma das 5 dimensões mapeadas. Quanto maior a pontuação, maior é o custo energético que esse padrão exige de você.
+      </p>
+
+      <div class="dimensions-grid" id="dimensions-container">
+        <!-- Inserido dinamicamente via JS -->
+      </div>
+    </section>
+
+    <!-- SEÇÃO 2: Temas e Comportamentos Identificados -->
+    <section class="card">
+      <h3 class="section-title">
+        <span>2.</span> Temas e Comportamentos Identificados
+      </h3>
+      <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 16px;">
+        Padrões comportamentais que se destacaram como os principais condutores das suas reações cotidianas:
+      </p>
+
+      <div id="themes-container">
+        <!-- Inserido dinamicamente via JS -->
+      </div>
+    </section>
+
+    <!-- SEÇÃO 3: Possíveis Conexões Comportamentais -->
+    <section class="card">
+      <h3 class="section-title">
+        <span>3.</span> Possíveis Conexões Comportamentais
+      </h3>
+      <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 16px;">
+        Como uma área da sua vida retroalimenta silenciosamente as tensões de outra:
+      </p>
+
+      <div id="connections-container">
+        <!-- Inserido dinamicamente via JS -->
+      </div>
+    </section>
+
+    <!-- SEÇÃO 4: Recursos Pessoais Relatados -->
+    <section class="card">
+      <h3 class="section-title">
+        <span>4.</span> Recursos Pessoais Relatados
+      </h3>
+      <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 16px;">
+        Suas fortalezas, competências e pontos de apoio identificados nas respostas:
+      </p>
+
+      <div id="resources-container">
+        <!-- Inserido dinamicamente via JS -->
+      </div>
+    </section>
+
+    <!-- SEÇÃO 5: Perguntas para Reflexão -->
+    <section class="card">
+      <h3 class="section-title">
+        <span>5.</span> Perguntas para Reflexão
+      </h3>
+      <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 16px;">
+        Provocações conscientes para você observar na sua rotina nos próximos dias:
+      </p>
+
+      <div id="reflections-container">
+        <!-- Inserido dinamicamente via JS -->
+      </div>
+    </section>
+
+    <!-- SEÇÃO 6: Convite para Aprofundamento com Edson Batista (V1.1 Oficial) -->
+    <section class="invitation-box">
+      <div class="invitation-badge">Próximo Passo Estruturado</div>
+      <h3 class="invitation-heading">Vamos compreender melhor os padrões que aparecem na sua vida?</h3>
+      
+      <p class="invitation-text">
+        Seu mapeamento é um ponto de partida.<br>
+        Em uma conversa individual, podemos explorar as situações que você relatou, compreender melhor seus comportamentos e avaliar possibilidades de desenvolvimento.
+      </p>
+
+      <div class="session-details">
+        <div class="session-detail-item">
+          <strong>Sessão Gratuita de Mapeamento Comportamental</strong>
+        </div>
+        <div class="session-detail-item">
+          • Profissional: <strong>Edson Batista</strong>
+        </div>
+        <div class="session-detail-item">
+          • Duração: <strong>30 minutos</strong>
+        </div>
+        <div class="session-detail-item">
+          • Modalidade: <strong>Online pelo Google Meet</strong>
+        </div>
+      </div>
+
+      <div class="session-actions">
+        <!-- Botão Principal: Abre a página oficial do Google Calendar sem expor dados confidenciais -->
+        <button id="btn-open-calendar" class="btn btn-calendar-primary">
+          Escolher meu dia e horário
+        </button>
+
+        <!-- Botão Secundário: Concluir por aqui -->
+        <button id="btn-finish" class="btn-calendar-secondary">
+          Concluir por aqui
+        </button>
+      </div>
+
+      <p id="intent-feedback" style="display: none; margin-top: 14px; font-size: 0.82rem; color: var(--aqua);">
+        ✓ Intenção de agendamento registrada. A página oficial do Google Calendar foi aberta para você escolher o melhor horário.
+      </p>
+    </section>
+
+    <!-- Mensagem de conclusão ao clicar em Concluir por aqui -->
+    <div id="modal-finished" class="card" style="display: none; text-align: center; border: 2px solid var(--salvia);">
+      <h4 style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--petroleo); margin-bottom: 8px;">
+        Mapeamento Salvo com Sucesso
+      </h4>
+      <p style="font-size: 0.95rem; color: var(--text-dark); margin-bottom: 16px;">
+        Seu Mapa de Padrões fica salvo neste dispositivo e poderá ser revisitado a qualquer momento por este mesmo endereço.
+      </p>
+      <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="btn btn-secondary">
+        Rever meu mapa
+      </button>
+    </div>
+
+  </main>
+
+  <footer style="text-align: center; padding: 32px 20px; font-size: 0.8rem; color: var(--text-muted);">
+    Northorya — Mapa dos Seus Padrões V1.1 • Conduzido por Edson Batista • Todos os direitos reservados.
+  </footer>
+
+  <script src="/js/resultado.js"></script>
+</body>
+</html>
