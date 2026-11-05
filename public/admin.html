@@ -8,7 +8,7 @@
   <style>
     .login-container {
       max-width: 420px;
-      margin: 80px auto;
+      margin: 40px auto;
     }
     .badge-filter {
       cursor: pointer;
@@ -30,22 +30,22 @@
 </head>
 <body>
 
-  <!-- Topo -->
-  <header class="brand-header">
-    <div class="brand-badge">Northorya • Painel Administrativo V1.1</div>
-    <h1 class="brand-title">CRM de Mapeamentos & Leads</h1>
-    <p class="brand-subtitle">Gestão do funil de diagnóstico e agendamentos Google Calendar</p>
+  <!-- Topo Estático Não Fixo -->
+  <header class="brand-header-static">
+    <img src="/assets/logo-northorya.png" alt="Northorya" class="brand-logo" style="max-width: 170px;">
+    <div class="brand-badge" style="margin-top: 4px;">Painel Administrativo V1.1</div>
+    <h1 class="brand-title" style="font-size: 1.5rem;">CRM de Mapeamentos & Leads</h1>
   </header>
 
   <main class="container container-wide">
 
     <!-- Tela de Login Admin -->
     <div id="admin-login-box" class="card login-container">
-      <h2 style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--petroleo); margin-bottom: 12px;">
+      <h2 style="font-family: var(--font-heading); font-size: 1.35rem; color: var(--petroleo); margin-bottom: 12px;">
         Acesso Administrativo
       </h2>
       <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px;">
-        Digite a senha de administrador configurada no arquivo de ambiente (.env).
+        Digite a senha de administrador configurada nas variáveis de ambiente.
       </p>
 
       <form id="form-login">
@@ -65,7 +65,7 @@
       <!-- Barra de Controle Superior -->
       <div class="admin-header">
         <div>
-          <h2 style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--petroleo);">Visão Geral do Funil</h2>
+          <h2 style="font-family: var(--font-heading); font-size: 1.55rem; color: var(--petroleo);">Visão Geral do Funil</h2>
           <span style="font-size: 0.85rem; color: var(--text-muted);">Métricas em tempo real sobre diagnósticos e conversão</span>
         </div>
         <div style="display: flex; gap: 10px;">
@@ -80,7 +80,7 @@
 
       <!-- Configuração da URL de Agendamento (Expansível) -->
       <div id="config-panel" class="card" style="display: none; background-color: var(--marfim); border: 2px solid var(--salvia);">
-        <h3 style="font-family: var(--font-serif); font-size: 1.3rem; color: var(--petroleo); margin-bottom: 8px;">
+        <h3 style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--petroleo); margin-bottom: 8px;">
           Configuração Oficial do Agendamento (Google Calendar)
         </h3>
         <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;">

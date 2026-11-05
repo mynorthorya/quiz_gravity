@@ -3,38 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Northorya — Mapa dos Seus Padrões | V1.1</title>
+  <title>Northorya — Mapa dos Seus Padrões</title>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
-  <!-- Topo Institucional Northorya -->
-  <header class="brand-header">
-    <div class="brand-badge">Northorya • Desenvolvimento Humano</div>
-    <h1 class="brand-title">Mapa dos Seus Padrões</h1>
-    <p class="brand-subtitle">Entender sua história. Compreender seu contexto. Encontrar seu norte.</p>
+  <!-- Topo Estático Não Fixo -->
+  <header class="brand-header-static">
+    <img src="/assets/logo-northorya.png" alt="Northorya" class="brand-logo">
   </header>
 
   <main class="container">
     
-    <!-- Tela 1: Boas-vindas / Apresentação -->
+    <!-- Tela 1: Apresentação Oficial -->
     <section id="screen-intro" class="card">
       <div class="dimension-tag">Mapeamento Comportamental Individual</div>
-      <h2 class="question-title">A vida que você vive hoje é fruto dos padrões que você repete no automático.</h2>
-      <p style="color: var(--text-dark); margin-bottom: 16px; font-size: 1.05rem;">
-        Ao longo de 20 perguntas calibradas, você terá um diagnóstico determinístico e individual sobre as 5 forças que governam sua rotina:
+      <h1 class="question-title" style="font-size: 1.65rem; margin-bottom: 16px;">
+        NORTHORYA — MAPA DOS SEUS PADRÕES
+      </h1>
+      <p style="color: var(--text-dark); margin-bottom: 16px; font-size: 1rem; line-height: 1.6;">
+        Depois de concluir as 20 perguntas, você visualizará:
       </p>
       
-      <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; font-size: 0.95rem; color: var(--text-muted);">
-        <li>✦ <strong>Gestão de Energia e Limites:</strong> O custo biológico do que você aceita carregar.</li>
-        <li>✦ <strong>Tomada de Decisão e Autonomia:</strong> O peso da validação alheia nas suas escolhas.</li>
-        <li>✦ <strong>Dinâmica de Relacionamentos:</strong> Como você se posiciona e lida com atritos.</li>
-        <li>✦ <strong>Relação com Erro e Controle:</strong> O rigor do seu filtro interno de autocobrança.</li>
-        <li>✦ <strong>Alinhamento de Propósito:</strong> A distância entre seus valores e suas ações diárias.</li>
-      </ul>
+      <ol style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; padding-left: 20px; font-size: 0.95rem; color: var(--text-dark); line-height: 1.5;">
+        <li><strong>Seu Mapa de Padrões individual.</strong></li>
+        <li><strong>Temas e comportamentos identificados em suas respostas.</strong></li>
+        <li><strong>Possíveis conexões comportamentais.</strong></li>
+        <li><strong>Recursos pessoais relatados.</strong></li>
+        <li><strong>Perguntas para reflexão.</strong></li>
+        <li><strong>Convite para aprofundamento com Edson Batista.</strong></li>
+      </ol>
 
       <div style="background-color: var(--salvia-light); padding: 14px 18px; border-radius: var(--radius-sm); margin-bottom: 24px; font-size: 0.88rem; color: var(--petroleo);">
-        Tempo estimado: <strong>4 a 6 minutos</strong>. Suas respostas geram uma devolutiva analítica imediata e confidencial.
+        Tempo estimado: <strong>4 a 6 minutos</strong>. Suas respostas geram uma devolutiva individual determinística e confidencial.
       </div>
 
       <button id="btn-start" class="btn btn-primary btn-block" style="font-size: 1.05rem;">
@@ -42,7 +43,7 @@
       </button>
     </section>
 
-    <!-- Tela 2: O Quiz (20 Perguntas) -->
+    <!-- Tela 2: O Quiz (20 Perguntas sem header fixo) -->
     <section id="screen-quiz" class="card" style="display: none;">
       <div class="progress-wrapper">
         <div class="progress-info">
@@ -66,7 +67,7 @@
           ← Pergunta anterior
         </button>
         <span style="font-size: 0.8rem; color: var(--text-muted);">
-          Dica: Escolha a opção mais honesta com a sua rotina real.
+          Escolha a alternativa mais honesta com sua rotina.
         </span>
       </div>
     </section>
@@ -74,9 +75,9 @@
     <!-- Tela 3: Identificação Opcional e LGPD -->
     <section id="screen-identification" class="card" style="display: none;">
       <div class="dimension-tag">Etapa Final • Personalização</div>
-      <h2 class="question-title">Seu Mapa de Padrões está pronto para ser interpretado.</h2>
+      <h2 class="question-title">Seu Mapa de Padrões está pronto.</h2>
       <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.95rem;">
-        Você pode personalizar seu relatório com seu nome e WhatsApp para facilitar a leitura. Se preferir manter sigilo total, deixe em branco.
+        Você pode personalizar seu relatório com seu nome e WhatsApp. O preenchimento é totalmente opcional e respeita as regras de privacidade da LGPD.
       </p>
 
       <div class="lead-form-box">
@@ -92,7 +93,7 @@
 
         <div class="lgpd-badge">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          Em conformidade com a LGPD: seus dados jamais serão comercializados ou compartilhados.
+          Em conformidade com a LGPD: seus dados jamais serão repassados ou comercializados.
         </div>
       </div>
 
@@ -106,7 +107,7 @@
     <!-- Tela 4: Carregando Análise -->
     <section id="screen-loading" class="card" style="display: none; text-align: center; padding: 48px 24px;">
       <div class="brand-badge">Motor Determinístico Northorya</div>
-      <h2 class="question-title" style="margin-top: 16px;">Calculando conexões comportamentais...</h2>
+      <h2 class="question-title" style="margin-top: 16px;">Calculando seu Mapa de Padrões...</h2>
       <p style="color: var(--text-muted); font-size: 0.95rem;">
         Cruzando suas respostas entre as 5 dimensões e organizando sua devolutiva individual.
       </p>
